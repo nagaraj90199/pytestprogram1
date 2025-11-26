@@ -1,15 +1,16 @@
+﻿import sys
+
 def add(a, b):
     return a + b
 
-if __name__ == "__main__":
-    try:
-        # Try to take user input
-        x = int(input("Enter first number: "))
-        y = int(input("Enter second number: "))
-    except Exception:
-        # If input fails, use default values
-        print("Input failed, using default values...")
+if _name_ == "_main_":
+    if len(sys.argv) == 3:
+        # Use command-line arguments (for Jenkins parameters)
+        x = int(sys.argv[1])
+        y = int(sys.argv[2])
+    else:
+        # Use default values if no input provided
         x = 10
         y = 20
-
-    print("Sum:", add(x, y))
+    
+    print("Sum:", add(x, y))
